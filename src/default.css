@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
+
+/* DEFAULTS [S] */
+
+:root {
+  --cd-bg-color: rgb(232, 68, 54);
+  --cd-default-color: lightblue;
+  --cd-gradient-color: linear-gradient(to bottom, rgb(243, 112, 92), rgb(238, 92, 75), rgb(232, 68, 54));
+}
+
+
+/* DEFAULTS [E] */
