@@ -28,11 +28,15 @@ module.exports = (env, option) => {
       app: './index.tsx'
     },
     output: {
-      publicPath: isProduction ? './' : '/', //<--- output path of resources js & css
+      publicPath: isProduction ? '/build/' : '/', //<--- output path of resources js & css
       path: outPath,
       filename: isProduction ? '[contenthash].js' : '[hash].js',
       chunkFilename: isProduction ? '[name].[contenthash].js' : '[name].[hash].js'
     },
+    // performance: {
+    //   maxEntrypointSize: 512000,
+    //   maxAssetSize: 512000
+    // },
     resolve: {
       // Add '.ts' and '.tsx' as resolvable extensions.
       extensions: [".js", ".ts", ".tsx"],

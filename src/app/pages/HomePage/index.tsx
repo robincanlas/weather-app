@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as style from './style.css';
 import { DivIcon, Marker } from 'leaflet';
+import { Products } from 'app/components';
 
 export namespace HomePage {
 	export interface Props {
@@ -84,6 +85,7 @@ export const HomePage: React.FC<HomePage.Props> = (props: HomePage.Props) => {
 
 	return (
 		<main>
+			<Products />
 			<div id='windy' className={style.windy} />
 		</main>
 	);

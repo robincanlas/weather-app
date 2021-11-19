@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { HomePage } from './pages';
+import { HomePage } from 'app/pages';
 
 export namespace App {
 	export interface Props {
