@@ -21,7 +21,7 @@
     "forin": true,
     "indent": [
       true,
-      "tabs",
+      "spaces",
       2
     ],
     "interface-name": [

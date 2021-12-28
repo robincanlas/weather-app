@@ -1,9 +1,9 @@
 import { Product } from 'app/models';
 
 export const initialState: ProductState = {
-	products: []
+  products: []
 };
 
 export type ProductState = {
-	products: Product.Model[];
+  products: Product.Model[];
 };

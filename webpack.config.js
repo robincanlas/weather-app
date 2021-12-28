@@ -127,7 +127,8 @@ module.exports = (env, option) => {
     plugins: [
       new webpack.EnvironmentPlugin({
         NODE_ENV: option.mode,
-        DEBUG: false
+        DEBUG: false,
+        COUNTRY_SERVICE: 'https://robincanlas-country-service.herokuapp.com/'
       }),
       new CleanWebpackPlugin(),
       new MiniCssExtractPlugin({

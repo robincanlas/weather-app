@@ -1,15 +1,18 @@
 import api from 'app/lib/api';
+import { Country } from 'app/models';
+// import secrets from 'app/secrets';
 import { ResourceFetch } from 'app/types/Api';
 
-const baseUrl: string = 'https://restcountries.com/v2/name/';
-// const baseUrl: string = 'http://localhost:9000/timezones';
+// const baseUrl: string = secrets.countryService || '';
+const baseUrl: string = 'http://localhost:9001/';
 
 const { GET } = api;
 
 export interface CountryResource {
-	getCountries: ResourceFetch<any>;
+  // ResourceFetch<Response, Payload>
+  getCountries: ResourceFetch<Country.Model[], PartialPick<Country.Model, 'name'>>;
 }
 
 export const CountryResource: CountryResource = {
-	getCountries: GET(baseUrl + ':name', { authenticated: false })
+  getCountries: GET(baseUrl + 'country/list/' + ':name', { authenticated: false })
 };
