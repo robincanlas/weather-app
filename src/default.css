@@ -3,9 +3,14 @@
 /* DEFAULTS [S] */
 
 :root {
-  --cd-bg-color: rgb(232, 68, 54);
-  --cd-default-color: lightblue;
-  --cd-gradient-color: linear-gradient(to bottom, rgb(243, 112, 92), rgb(238, 92, 75), rgb(232, 68, 54));
+  --bg-color: rgb(232, 68, 54);
+  --default-color: lightblue;
+  --gradient-color: linear-gradient(to bottom, rgb(243, 112, 92), rgb(238, 92, 75), rgb(232, 68, 54));
+  --font-color-white: #fff3e1;
+}
+
+body {
+  font-family: -apple-system,system-ui,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',sans-serif;
 }
 
 

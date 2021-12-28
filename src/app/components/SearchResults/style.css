@@ -1,0 +1,71 @@
+.search-ul {
+  /* Remove default list styling */
+  list-style-type: none;
+  padding: 0;
+  margin: 0 auto;
+  width: 95%;
+  position: absolute;
+  margin-top: 55px;
+  z-index: 1;
+}
+
+.search-ul li div {
+  height: 25px;
+  margin: 0 !important; /* Prevent double borders */
+  padding: 12px; /* Add some padding */
+  text-decoration: none; /* Remove default text underline */
+  color: black; /* Add a black text color */
+  display: block; /* Make it into a block element to fill the whole list */
+  text-shadow: 1px 1px 1px rgb(0 0 0 / 63%);
+  color: white;
+  cursor: pointer;
+  border-radius: 6px;
+  display: flex;
+  font-size: 15px;
+  flex-direction: column;
+}
+
+.search-ul li div span {
+  align-items: self-end;
+  display: flex;
+}
+
+.search-ul li div span:not(:first-child) {
+  font-weight: 300;
+  font-size: 85%;
+  margin-left: 8px;
+}
+
+.search-ul li div span:last-child {
+  display: none;
+}
+
+.search-ul li div:hover:not(.header) {
+  background-color: rgba(236,236,236,0.33); /* Add a hover effect to all links, except for headers */
+}
+
+/* * to tablet */
+@media (min-width: 550px) { 
+
+}
+
+/* * to desktop */
+@media (min-width: 768px) { 
+  .search-ul li div { 
+    font-size: 22px; /* Increase the font-size */
+    flex-direction: row;
+  }
+
+  .search-ul li div span {
+    justify-content: center;
+  }
+
+  .search-ul li div span:last-child {
+    display: inherit;
+  }
+}
+
+/* to desktop */
+@media (min-width: 1025px) {  
+
+}

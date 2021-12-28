@@ -12,6 +12,8 @@ export namespace CountryActions {
     GET_COUNTRIES_REQUEST = 'GET_COUNTRIES_REQUEST',
     GET_COUNTRIES_SUCCESS = 'GET_COUNTRIES_SUCCESS',
     GET_COUNTRIES_FAILURE = 'GET_COUNTRIES_FAILURE',
+
+    CLEAR_COUNTRIES = 'CLEAR_COUNTRIES'
   }
 
   export const getCountries = (name: string): Thunk => {
@@ -31,6 +33,9 @@ export namespace CountryActions {
       );
     };
   };
+
+  export const clearCountries = createAction(Type.CLEAR_COUNTRIES);
+
 }
 
 export type CountryActions = Omit<typeof CountryActions, 'Type'>;

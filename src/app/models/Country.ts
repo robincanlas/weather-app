@@ -5,11 +5,11 @@ export namespace Country {
     type: string;
     name: string;
     number: number;
-    postal_code: number;
+    postal_code: string;
     street: string;
     confidence: number;
     region: string;
-    region_code: number;
+    region_code: string;
     county: string;
     locality: string;
     administrative_area: string;    

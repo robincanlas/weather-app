@@ -1,0 +1,35 @@
+.search-section-container {
+  position: absolute;
+  z-index: 1;
+  width: 78vw;
+
+  transform-origin: left top;
+  transition: .25s all 2s;
+
+}
+  
+/* * to tablet */
+@media (min-width: 550px) { 
+  .search-section-container {
+    width: 50vw;
+  }
+
+  .search-section-container.focus {
+    transition: .25s all 0s;
+    transform: scaleX(1.1) scaleY(1.1);
+  }
+}
+
+/* * to desktop */
+@media (min-width: 768px) { 
+  .search-section-container {
+    width: 30vw;
+  }
+}
+
+/* to desktop */
+@media (min-width: 1025px) {  
+  .search-section-container {
+    width: 30vw;
+  }
+}
