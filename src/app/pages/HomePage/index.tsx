@@ -12,7 +12,7 @@ export const HomePage: React.FC<HomePage.Props> = (props: HomePage.Props) => {
   return (
     <>
       <Search />  
-      {true ? null : <WindyMap />}
+      {false ? null : <WindyMap />}
     </>
   );
 };

@@ -8,7 +8,7 @@ import { bindActionCreators, Dispatch } from 'redux';
 import { useInput } from 'app/components';
 import { Country } from 'app/models';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import { faSearch, faTimes } from '@fortawesome/free-solid-svg-icons'
 
 export namespace _SearchInputMobile {
   export interface Props {
@@ -47,17 +47,18 @@ export const _SearchInputMobile: React.FC<_SearchInputMobile.Props> = ({
     setInputValue(searchValue);
   }, [searchValue]);
 
-  const openMobileSearch = () => {
+  const toggleSearch = () => {
     setMobileSearch(!mobileSearch);
   };
 
   return (
     <>
-      {mobileSearch ? <div className={style['m-search-header']}>
-        <FontAwesomeIcon icon={faSearch} />
+      <div className={`${style['m-search-header']} ${mobileSearch ? style.toggle : ''}`}>
+        <FontAwesomeIcon icon={faSearch} className={style['m-search-icons']} />
         {searchInput}
-      </div> : null}
-      {isLoading ? null : <FontAwesomeIcon onClick={openMobileSearch} className={style['m-magnifying-glass']} icon={faSearch} /> }
+        <FontAwesomeIcon icon={faTimes} className={style['m-search-icons']} onClick={toggleSearch} />
+      </div>
+      {isLoading ? null : <FontAwesomeIcon onClick={toggleSearch} className={style['m-magnifying-glass']} icon={faSearch} /> }
     </>
   );
 };

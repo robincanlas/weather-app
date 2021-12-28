@@ -10,11 +10,25 @@
   font-size: 25px;
   right: 5%;
   top: 70%;
+  z-index: 1;
 }
 
 .m-search-header {
-  background: rgb(0 0 0 / 49%);
+  background: #444141d6;
   height: 45px;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  transform: scale(0);
+  transform-origin: top left;
+  transition: 100ms all;
+  z-index: 1;
+}
+
+.m-search-header.toggle {
+  transform: scale(1);
 }
 
 .m-search-input {
@@ -22,6 +36,11 @@
   color: white;
   border: none;
   outline-width: 0;
+  height: 100%;
+}
+
+.m-search-icons {
+  font-size: 25px;
 }
 
 /* * to tablet */
