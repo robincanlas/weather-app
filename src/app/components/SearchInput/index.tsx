@@ -54,13 +54,6 @@ export const _SearchInput: React.FC<_SearchInput.Props> = ({
     <>
       {searchInput}
       {isLoading ? null : <div onClick={search} className={style['magnifying-glass']} />}
-      {/* <div className={style['loading-container']}>
-        <div className={style['lds-facebook']}>
-          <div />
-          <div />
-          <div />
-        </div>
-      </div> */}
     </>
   );
 };

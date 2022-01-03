@@ -10,6 +10,7 @@ import { CountryActions } from 'app/stores/country/actions';
 export namespace _SearchResults {
   export interface Props {
     countries?: Country.Model[];
+    isLoading?: boolean;
 
     countryActions?: CountryActions;
   }
@@ -17,6 +18,7 @@ export namespace _SearchResults {
 
 export const _SearchResults: React.FC<_SearchResults.Props> = ({
   countries = [],
+  isLoading = false, 
 
   countryActions = CountryActions,
  }) => {
@@ -41,7 +43,6 @@ export const _SearchResults: React.FC<_SearchResults.Props> = ({
               <div>
                 <span>{country.name}</span>
                 <span>{country.label}</span>
-                {/* <span>{country.country_code}</span> */}
               </div>
             </li>
           ))}
@@ -50,6 +51,23 @@ export const _SearchResults: React.FC<_SearchResults.Props> = ({
     );
   };
 
+  const getLoading = () => {
+    return (
+      <>
+        <div className={style['loading-container']}>
+          <div className={style['lds-ripple']}>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      </>
+    );
+  };
+
+  if (isLoading) {
+    return getLoading();
+  }
+
   if (countries.length === 0) {
     return null;
   }
@@ -57,9 +75,10 @@ export const _SearchResults: React.FC<_SearchResults.Props> = ({
   return getList();
 };
 
-const mapStateToProps = (state: RootState): Pick<_SearchResults.Props, 'countries'> => {
+const mapStateToProps = (state: RootState): Pick<_SearchResults.Props, 'countries' | 'isLoading'> => {
   return {
     countries: state.country.countries,
+    isLoading: state.country.isLoading
   };
 };
 
