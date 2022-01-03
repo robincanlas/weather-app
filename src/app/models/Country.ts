@@ -19,4 +19,5 @@ export namespace Country {
     continent: string;
     label: string;
   }
+  
 }

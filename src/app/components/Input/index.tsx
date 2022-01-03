@@ -28,6 +28,7 @@ export namespace useInput {
     type={type} 
     className={className}
     placeholder={placeHolder} 
-    />;
+    spellCheck='false'
+  />;
   return [input, value, focus];
 };

@@ -2,16 +2,21 @@ import * as React from 'react';
 import * as style from './style.css';
 import { DivIcon, Marker } from 'leaflet';
 import { connect } from 'react-redux';
+import { RootState } from 'app/stores';
+import { Country } from 'app/models';
 
 export namespace _WindyMap {
   export interface Props {
+    country?: Country.Model | null;
   }
   
   export interface State {
   }
 }
 
-export const _WindyMap: React.FC<_WindyMap.Props> = (props: _WindyMap.Props) => {
+export const _WindyMap: React.FC<_WindyMap.Props> = ({
+  country = null
+}: _WindyMap.Props) => {
   const [windyMap, setWindyMap] = React.useState<any>(null);
   const indexPkg: any = window; 
   const windyApiKey: string = 'ocVsUGWwD1Ansc7fZYLYZaTJg6eBssHf';
@@ -25,6 +30,7 @@ export const _WindyMap: React.FC<_WindyMap.Props> = (props: _WindyMap.Props) => 
     zoom: 5,
     latlon: true
   };
+  
   const dotAnimated = `${style['pulsating-icon']} ${style.repeat}`;
   let radarMarker: Marker | null = null;
 
@@ -35,7 +41,13 @@ export const _WindyMap: React.FC<_WindyMap.Props> = (props: _WindyMap.Props) => 
     const { map } = windyAPI;
     setWindyMap(map);
 
-    // picker.open({ lat: options.lat, lon: options.lon });
+    // setTimeout(() => {
+    //   picker.open({ 
+    //     lat: 40.68295,
+    //     lon: -73.9708, 
+    //   });
+    // }, 3000);
+
     const windyLogo: HTMLElement | null = document.getElementById('logo-wrapper');
     if (windyLogo) {
       windyLogo.style.display = 'none';
@@ -68,17 +80,27 @@ export const _WindyMap: React.FC<_WindyMap.Props> = (props: _WindyMap.Props) => 
         const lng: number = e.latlng.lng;
         console.log(e);
         addRadarMarker(lat, lng);
-        
-        // indexPkg.L.popup()
-        // 	.setLatLng([lat, lng])
-        // 	.setContent(`
-        // 		Latitude: ${lat}, 
-        // 		Longitude ${lng}`
-        // 	)
-        // 	.openOn(windyMap);
       });
     }
   }, [windyMap]);
+
+  React.useEffect(() => {
+    if (windyMap) {
+      if (country) {
+        let lat = country.latitude;
+        let lng = country.longitude;
+        windyMap
+          .panTo([lat, lng] , { animate: true, duration: 0.5 });
+
+        setTimeout(() => {
+          indexPkg.L.popup({ autoPan: true })
+          .setLatLng([lat, lng])
+          .setContent(`${country.name}`)
+          .openOn(windyMap);
+        }, 1500);
+      }
+    }
+  }, [windyMap, country]);
 
   React.useEffect(() => {
     indexPkg.windyInit(options, windyInit);
@@ -87,13 +109,13 @@ export const _WindyMap: React.FC<_WindyMap.Props> = (props: _WindyMap.Props) => 
   return <div id='windy' className={style.windy} />;
 };
 
-// const mapStateToProps = (state: RootState): Pick<_SearchResults.Props, 'countries'> => {
-//   return {
-//     countries: state.country.countries,
-//   };
-// };
+const mapStateToProps = (state: RootState): Pick<_WindyMap.Props, 'country'> => {
+  return {
+    country: state.country.country,
+  };
+};
 
 export const WindyMap: React.FC<_WindyMap.Props> = connect(
-  null,
+  mapStateToProps,
   null
 )(_WindyMap);

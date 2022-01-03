@@ -62,10 +62,15 @@ export const _SearchInputMobile: React.FC<_SearchInputMobile.Props> = ({
     setMobileSearch(!mobileSearch);
   };
 
+  const clickMagnifying = () => {
+    search();
+    toggleSearch();
+  };
+
   return (
     <>
       <div className={`${style['m-search-header']} ${mobileSearch ? style.toggle : ''}`}>
-        <FontAwesomeIcon icon={faSearch} className={style['m-search-icons']} />
+        <FontAwesomeIcon icon={faSearch} className={style['m-search-icons']} onClick={clickMagnifying} />
         {searchInput}
         <FontAwesomeIcon icon={faTimes} className={style['m-search-icons']} onClick={toggleSearch} />
       </div>

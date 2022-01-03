@@ -4,8 +4,7 @@
   top: 0;
   width: 35px;
   height: 35px;
-  /* color: var(--font-color-white); */
-  color: black;
+  color: var(--font-color-white);
   text-shadow: 0 0 4px black;
   font-size: 25px;
   right: 5%;
@@ -37,10 +36,13 @@
   border: none;
   outline-width: 0;
   height: 100%;
+  text-decoration: none;
 }
 
 .m-search-icons {
   font-size: 25px;
+  color: var(--font-color-white);
+  text-shadow: 0 0 4px black;
 }
 
 /* * to tablet */

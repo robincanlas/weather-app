@@ -1,10 +1,9 @@
 import api from 'app/lib/api';
 import { Country } from 'app/models';
-// import secrets from 'app/secrets';
+import secrets from 'app/secrets';
 import { ResourceFetch } from 'app/types/Api';
 
-// const baseUrl: string = secrets.countryService || '';
-const baseUrl: string = 'http://localhost:9001/';
+const baseUrl: string = secrets.countryService || '';
 
 const { GET } = api;
 

@@ -4,7 +4,7 @@ import { Country } from 'app/models';
 import { CountryState, initialState } from '../state';
 import update from 'immutability-helper';
 
-export const countryReducer = handleActions<CountryState, Country.Model[]>(
+export const countryReducer = handleActions<CountryState, Country.Model[] & Country.Model>(
   {
     [CountryActions.Type.GET_COUNTRIES_REQUEST]: (state, action) => {
       return update(state, {
@@ -13,7 +13,7 @@ export const countryReducer = handleActions<CountryState, Country.Model[]>(
       });
     },
     [CountryActions.Type.GET_COUNTRIES_SUCCESS]: (state, action) => {
-      // GET 9 results only
+      // GET 10 results only
       return update(state, {
         countries: { $set: action.payload.slice(0, 9) },
         isLoading: { $set: false }
@@ -23,8 +23,15 @@ export const countryReducer = handleActions<CountryState, Country.Model[]>(
       return state;
     },
     [CountryActions.Type.CLEAR_COUNTRIES]: (state, action) => {
-      return state;
+      return update(state, {
+        countries: { $set: [] }
+      });
     },
+    [CountryActions.Type.SELECT_COUNTRY]: (state, action) => {
+      return update(state, {
+        country: { $set: action.payload }
+      });
+    }
   },
   initialState
 );
