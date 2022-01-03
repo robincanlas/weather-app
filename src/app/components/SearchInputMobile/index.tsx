@@ -47,6 +47,17 @@ export const _SearchInputMobile: React.FC<_SearchInputMobile.Props> = ({
     setInputValue(searchValue);
   }, [searchValue]);
 
+  React.useEffect(() => {
+    const progressBar: HTMLElement | null = document.getElementById('progress-bar');
+    if (progressBar) {
+      if (mobileSearch) {
+        progressBar.style.display = 'none';
+      } else {
+        progressBar.style.display = 'block';
+      }
+    }
+  }, [mobileSearch]);
+
   const toggleSearch = () => {
     setMobileSearch(!mobileSearch);
   };
@@ -58,7 +69,7 @@ export const _SearchInputMobile: React.FC<_SearchInputMobile.Props> = ({
         {searchInput}
         <FontAwesomeIcon icon={faTimes} className={style['m-search-icons']} onClick={toggleSearch} />
       </div>
-      {isLoading ? null : <FontAwesomeIcon onClick={toggleSearch} className={style['m-magnifying-glass']} icon={faSearch} /> }
+      {mobileSearch ? null : <FontAwesomeIcon onClick={toggleSearch} className={style['m-magnifying-glass']} icon={faSearch} /> }
     </>
   );
 };

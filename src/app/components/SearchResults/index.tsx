@@ -28,8 +28,8 @@ export const _SearchResults: React.FC<_SearchResults.Props> = ({
             <li key={country.latitude} style={{'opacity': opacity -= .07}}>
               <div>
                 <span>{country.name}</span>
-                <span>{country.country}</span>
-                <span>{country.country_code}</span>
+                <span>{country.label}</span>
+                {/* <span>{country.country_code}</span> */}
               </div>
             </li>
           ))}

@@ -5,14 +5,15 @@
   margin: 0 auto;
   width: 95%;
   position: absolute;
-  margin-top: 55px;
+  /* margin-top: 55px; */
+  margin-top: 40px;
   z-index: 1;
 }
 
 .search-ul li div {
-  height: 25px;
+  height: 33px;
   margin: 0 !important; /* Prevent double borders */
-  padding: 12px; /* Add some padding */
+  padding: 12px 12px 0px; /* Add some padding */
   text-decoration: none; /* Remove default text underline */
   color: black; /* Add a black text color */
   display: block; /* Make it into a block element to fill the whole list */
@@ -32,12 +33,9 @@
 
 .search-ul li div span:not(:first-child) {
   font-weight: 300;
-  font-size: 85%;
+  /* font-size: 85%; */
+  font-size: 14px;
   margin-left: 8px;
-}
-
-.search-ul li div span:last-child {
-  display: none;
 }
 
 .search-ul li div:hover:not(.header) {
