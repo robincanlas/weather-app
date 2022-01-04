@@ -16,7 +16,9 @@ export namespace CountryActions {
     CLEAR_COUNTRIES = 'CLEAR_COUNTRIES',
 
     SELECT_COUNTRY = 'SELECT_COUNTRY',
-    CLEAR_SELECTED_COUNTRY = 'CLEAR_SELECTED_COUNTRY'
+    CLEAR_SELECTED_COUNTRY = 'CLEAR_SELECTED_COUNTRY',
+
+    TOGGLE_MOBILE_SEARCH = 'TOGGLE_MOBILE_SEARCH'
   }
 
   export const getCountries = (name: string): Thunk => {

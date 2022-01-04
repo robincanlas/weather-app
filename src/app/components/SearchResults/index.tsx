@@ -12,6 +12,7 @@ export namespace _SearchResults {
     countries?: Country.Model[];
     isLoading?: boolean;
 
+    toggleMobileSearch: () => void;
     countryActions?: CountryActions;
   }
 }
@@ -20,6 +21,7 @@ export const _SearchResults: React.FC<_SearchResults.Props> = ({
   countries = [],
   isLoading = false, 
 
+  toggleMobileSearch = () => { return null; },
   countryActions = CountryActions,
  }) => {
   // const [showList, setShowList] = React.useState<boolean>(false);
@@ -31,6 +33,7 @@ export const _SearchResults: React.FC<_SearchResults.Props> = ({
   const select = (country: Country.Model) => {
     countryActions.clearCountries();
     countryActions.selectCountry(country);
+    toggleMobileSearch();
   };
 
   const getList = (): JSX.Element => {
@@ -56,8 +59,8 @@ export const _SearchResults: React.FC<_SearchResults.Props> = ({
       <>
         <div className={style['loading-container']}>
           <div className={style['lds-ripple']}>
-            <div></div>
-            <div></div>
+            <div />
+            <div />
           </div>
         </div>
       </>

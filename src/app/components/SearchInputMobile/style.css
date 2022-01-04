@@ -45,10 +45,28 @@
   text-shadow: 0 0 4px black;
 }
 
+.m-overlay {
+  height: calc(100vh - 45px);
+  width: 100%;
+  top: 45px;
+  position: absolute;
+  z-index: 1;
+  background: #80808082;
+  transition: opacity 300ms ease-in, visibility 0s ease 0s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.m-overlay.toggle {
+  opacity: 1;
+  visibility: visible;
+}
+
 /* * to tablet */
 @media (min-width: 550px) { 
   .m-magnifying-glass, 
-  .m-search-header {
+  .m-search-header, 
+  .m-overlay {
     display: none;
   }
   

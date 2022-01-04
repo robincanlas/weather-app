@@ -3,7 +3,7 @@
   list-style-type: none;
   padding: 0;
   margin: 0 auto;
-  width: 95%;
+  width: 100%;
   position: absolute;
   /* margin-top: 55px; */
   margin-top: 40px;
@@ -49,8 +49,10 @@
   width: 100%;
   position: absolute;
   z-index: 1;
-  opacity: .85;
+  opacity: .9;
   height: 100vh;
+  transform: scale(1.1);
+  transform-origin: center;
 }
 
 .lds-ripple {

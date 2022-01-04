@@ -3,7 +3,7 @@ import { Country } from 'app/models';
 export const initialState: CountryState = {
   countries: [],
   country: null,
-  isLoading: false
+  isLoading: false,
 };
 
 for (let index = 0; index < 10; index++) {

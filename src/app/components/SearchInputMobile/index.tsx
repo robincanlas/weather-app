@@ -12,21 +12,24 @@ import { faSearch, faTimes } from '@fortawesome/free-solid-svg-icons'
 
 export namespace _SearchInputMobile {
   export interface Props {
+    mobileSearch: boolean;
     countries?: Country.Model[];
     isLoading?: boolean;
 
+    toggleMobileSearch: () => void;
     countryActions?: CountryActions;
   }
 }
 
 export const _SearchInputMobile: React.FC<_SearchInputMobile.Props> = ({
+  mobileSearch = false,
   countries = [],
   isLoading = false,
 
+  toggleMobileSearch = () => { return null; },
   countryActions = CountryActions,
  }) => {
   const [inputValue, setInputValue] = React.useState<string>('');
-  const [mobileSearch, setMobileSearch] = React.useState<boolean>(true);
   
   const search = () => {
     if (inputValue === '') return;
@@ -58,13 +61,13 @@ export const _SearchInputMobile: React.FC<_SearchInputMobile.Props> = ({
     }
   }, [mobileSearch]);
 
-  const toggleSearch = () => {
-    setMobileSearch(!mobileSearch);
-  };
-
   const clickMagnifying = () => {
     search();
-    toggleSearch();
+  };
+
+  const close = () => {
+    toggleMobileSearch();
+    countryActions.clearCountries();
   };
 
   return (
@@ -72,9 +75,10 @@ export const _SearchInputMobile: React.FC<_SearchInputMobile.Props> = ({
       <div className={`${style['m-search-header']} ${mobileSearch ? style.toggle : ''}`}>
         <FontAwesomeIcon icon={faSearch} className={style['m-search-icons']} onClick={clickMagnifying} />
         {searchInput}
-        <FontAwesomeIcon icon={faTimes} className={style['m-search-icons']} onClick={toggleSearch} />
+        <FontAwesomeIcon icon={faTimes} className={style['m-search-icons']} onClick={close} />
       </div>
-      {mobileSearch ? null : <FontAwesomeIcon onClick={toggleSearch} className={style['m-magnifying-glass']} icon={faSearch} /> }
+      {mobileSearch ? null : <FontAwesomeIcon onClick={toggleMobileSearch} className={style['m-magnifying-glass']} icon={faSearch} /> }
+      <div className={`${style['m-overlay']} ${mobileSearch ? style.toggle : ''}`}></div>
     </>
   );
 };
