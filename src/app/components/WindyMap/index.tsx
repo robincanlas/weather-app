@@ -93,9 +93,15 @@ export const _WindyMap: React.FC<_WindyMap.Props> = ({
           .panTo([lat, lng] , { animate: true, duration: 0.5 });
 
         setTimeout(() => {
-          indexPkg.L.popup({ autoPan: true })
+          indexPkg.L.popup({ autoPan: true, className: style.popup })
           .setLatLng([lat, lng])
-          .setContent(`${country.name}`)
+          .setContent(`
+          <div class='${style['popup-name']}'>${country.name}</div>
+          <div>${country.country}, ${country.country_code}</div>
+          <div>${country.continent}</div>
+          <div>Lat: ${country.latitude}</div>
+          <div>Long: ${country.longitude}</div>
+          `)
           .openOn(windyMap);
         }, 1500);
       }

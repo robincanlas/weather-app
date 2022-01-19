@@ -1,7 +1,5 @@
 import secrets from 'app/secrets';
 import thunk from 'redux-thunk';
-import { productReducer } from './product/reducers';
-import { ProductState } from './product/state';
 import { countryReducer } from './country/reducers';
 import { CountryState } from './country/state';
 import {
@@ -13,10 +11,9 @@ import {
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { logger } from 'app/middlewares';
 import { ReduxCompatibleReducer } from 'redux-actions';
-import { Product, Country } from 'app/models';
+import { Country } from 'app/models';
 
 export interface RootState {
-  product: ProductState;
   country: CountryState;
   router?: any;
 }
@@ -29,7 +26,6 @@ export function configureStore(initialState?: RootState): Store<RootState> {
   }
 
   const rootReducer = combineReducers<RootState>({
-    product: productReducer as ReduxCompatibleReducer<ProductState, Product.Model[]>,
     country: countryReducer as ReduxCompatibleReducer<CountryState, Country.Model[]>
   });
 
@@ -47,5 +43,4 @@ export function configureStore(initialState?: RootState): Store<RootState> {
   return store;
 }
 
-export * from './product/reducers';
 export * from './country/reducers';

@@ -98,6 +98,11 @@
 
 /* * to desktop */
 @media (min-width: 768px) { 
+  .search-ul {
+    margin-top: 50px;
+    width: 50%;
+  }
+
   .search-ul li div { 
     font-size: 22px; /* Increase the font-size */
     flex-direction: row;
@@ -109,6 +114,10 @@
 
   .search-ul li div span:last-child {
     display: inherit;
+  }
+
+  .loading-container {
+    transform: scale(1);
   }
 }
 
