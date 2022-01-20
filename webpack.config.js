@@ -28,7 +28,7 @@ module.exports = (env, option) => {
       app: './index.tsx'
     },
     output: {
-      publicPath: isProduction ? '/build/' : '/', //<--- output path of resources js & css
+      publicPath: isProduction ? './' : '/',
       path: outPath,
       filename: isProduction ? '[contenthash].js' : '[hash].js',
       chunkFilename: isProduction ? '[name].[contenthash].js' : '[name].[hash].js'
