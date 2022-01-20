@@ -13,7 +13,7 @@ export namespace Search {
 
 export const Search: React.FC<Search.Props> = (props: Search.Props) => {
   const [inputFocus, setInputFocus] = React.useState<boolean>(false);
-  const [mobileSearch, setMobileSearch] = React.useState<boolean>(true);
+  const [mobileSearch, setMobileSearch] = React.useState<boolean>(false);
 
   const setFocus = (focus: boolean) => {
     setInputFocus(focus);
