@@ -20,7 +20,9 @@ export const countryReducer = handleActions<CountryState, Country.Model[] & Coun
       });
     },
     [CountryActions.Type.GET_COUNTRIES_FAILURE]: (state, action) => {
-      return state;
+      return update(state, {
+        isLoading: { $set: false }
+      });
     },
     [CountryActions.Type.CLEAR_COUNTRIES]: (state, action) => {
       return update(state, {
