@@ -128,7 +128,7 @@ module.exports = (env, option) => {
       new webpack.EnvironmentPlugin({
         NODE_ENV: option.mode,
         DEBUG: false,
-        COUNTRY_SERVICE: 'https://robincanlas-country-service.herokuapp.com/'
+        COUNTRY_SERVICE: 'https://robincanlas-country-service.onrender.com/'
       }),
       new CleanWebpackPlugin(),
       new MiniCssExtractPlugin({
@@ -156,6 +156,8 @@ module.exports = (env, option) => {
       })
     ],
     devServer: {
+      host: 'localhost',
+      port: 8000,
       contentBase: sourcePath,
       hot: true,
       inline: true,
