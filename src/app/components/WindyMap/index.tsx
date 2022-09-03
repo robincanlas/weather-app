@@ -49,8 +49,13 @@ export const _WindyMap: React.FC<_WindyMap.Props> = ({
     // }, 3000);
 
     const windyLogo: HTMLElement | null = document.getElementById('logo-wrapper');
+    const accumulations: HTMLElement | null = document.getElementById('accumulations');
     if (windyLogo) {
       windyLogo.style.display = 'none';
+    }
+
+    if (accumulations) {
+      accumulations.style.display = 'none';
     }
   };
 
