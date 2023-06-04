@@ -13,5 +13,5 @@ export interface CountryResource {
 }
 
 export const CountryResource: CountryResource = {
-  getCountries: GET(baseUrl + 'country/list/' + ':name', { authenticated: false })
+  getCountries: GET(baseUrl + 'country/' + ':name', { authenticated: false })
 };
