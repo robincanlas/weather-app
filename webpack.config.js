@@ -128,7 +128,7 @@ module.exports = (env, option) => {
       new webpack.EnvironmentPlugin({
         NODE_ENV: option.mode,
         DEBUG: false,
-        COUNTRY_SERVICE: 'https://robincanlas-server-typescript.onrender.com/'
+        COUNTRY_SERVICE: 'https://robincanlas-server-typescript-docker.onrender.com/'
       }),
       new CleanWebpackPlugin(),
       new MiniCssExtractPlugin({
